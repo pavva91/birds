@@ -1,12 +1,23 @@
-export function add(numbers: string): number {
-    let integers = numbers.split(",").map((x) => parseInt(x));
-    let negatives = integers.filter((x) => x < 0);
-
-    if (negatives.length > 0)
-        throw new RangeError("Negatives are not allowed: " + negatives.join(", "));
-
-    return integers.filter((x) => x <= 1000).reduce((a, b) => a + b, 0);
+/**
+ * determines the id of the most frequently sighted type.
+ * If more than 1 type has been spotted that maximum amount,
+ * return the smallest of their ids.
+ *
+ * @param birds {number} - the types of birds sighted
+ * @returns {number} the lowest type id of the most frequently sighted birds
+ */
+export function getMostFrequentSighting(birds: number[]): number {
+    // TODO: implement function
+    return 1;
 }
 
-let result = add("1, 2, 4, 5");
-console.log(result);
+/**
+ * determines the id of the bird type that was
+ * spotted for the first time at the latest.
+ * @param birds {number} - the types of birds sighted
+ * @returns {number} the latest type that was spotted for the first time
+ */
+export function getLatestFirstSighting(birds: number[]): number {
+    // TODO: implement function
+    return 1;
+}

@@ -37,11 +37,10 @@ their ids.
 #### Function Description
 
 getMostFrequentSighting has the following signature
-•
-Entry point parameter
-o int birds[n]: the types of birds sighted
-•
-Returns int: the lowest type id of the most frequently sighted birds
+
+- Entry point parameter
+  - int birds[n]: the types of birds sighted
+- Returns int: the lowest type id of the most frequently sighted birds
 
 #### Example
 
@@ -57,11 +56,10 @@ spotted for the first time at the latest.
 #### Function Description
 
 getLatestFirstSighting has the following signature
-•
-Entry point parameter
-o int birds[n]: the types of birds sighted
-•
-Returns int: the latest type that was spotted for the first time
+
+- Entry point parameter
+  - int birds[n]: the types of birds sighted
+- Returns int: the latest type that was spotted for the first time
 
 #### Example
 
@@ -71,6 +69,14 @@ The latest type that was spotted for the first time is type 3.
 ## Solution
 
 ### Run TS/Node Application
+
+### Run the index.ts in src
+
+```shell
+npx ts-node src
+```
+
+### Run a specific file
 
 ```shell
 npx ts-node src/hello.ts
