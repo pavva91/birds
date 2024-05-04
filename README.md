@@ -67,3 +67,31 @@ Returns int: the latest type that was spotted for the first time
 
 arr = [1, 1, 2, 3, 2]
 The latest type that was spotted for the first time is type 3.
+
+## Solution
+
+### Run TS/Node Application
+
+```shell
+npx ts-node src/hello.ts
+```
+
+### Compile TS Application into JS
+
+```shell
+npx tsc src/hello.ts
+```
+
+will create the file: src/hello.js
+
+#### Run JS Application with node
+
+```shell
+node src/hello.js
+```
+
+### Run Tests (jest)
+
+```shell
+npx jest
+```
