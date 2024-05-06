@@ -1,5 +1,24 @@
 # Pre Interview Coding Game
 
+## Run Test suite (TL;DR)
+
+I didn't compress node_modules
+From the root of the repository run:
+
+```shell
+npm install
+```
+
+```shell
+npm run coverage
+```
+
+or, simply:
+
+```shell
+npm test
+```
+
 ## Instructions
 
 Implement the following coding game in Typescript. Each method needs to be properly documented

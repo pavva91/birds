@@ -34,7 +34,7 @@ export function getMostFrequentSighting(birds: number[]): number {
             mostFrequentBird = key;
             maxValue = value;
         } else if (value == maxValue) {
-            // NOTE: if Map is always iterated in crescent order this is useless
+            // NOTE: if Map is always iterated in crescent order this control can be removed
             if (key < mostFrequentBird) {
                 mostFrequentBird = key;
                 maxValue = value;
