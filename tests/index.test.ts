@@ -4,6 +4,9 @@ import { getLatestFirstSighting } from "../src/index";
 describe("testing birds coding game", () => {
     // mock
     let emptyArray = [];
+    let zeroValue = [0];
+    let negativeValue = [-2];
+    let nonIntegerValue = [2.344, 1.1];
     let birdSightings1 = [1, 1, 2, 2, 3];
     let birdSightings2 = [1, 1, 2, 3, 2];
     let birdSightings3 = [4, 1, 2, 2, 5];
@@ -14,6 +17,21 @@ describe("testing birds coding game", () => {
     describe("test getMostFrequentSighting()", () => {
         test("empty array should return 0", () => {
             expect(getMostFrequentSighting(emptyArray)).toBe(0);
+        });
+        test("zero value should throw an error", () => {
+            expect(() => {
+                getMostFrequentSighting(zeroValue);
+            }).toThrow("bird type ids must be >= 1");
+        });
+        test("negative value should throw an error", () => {
+            expect(() => {
+                getMostFrequentSighting(negativeValue);
+            }).toThrow("bird type ids must be >= 1");
+        });
+        test("non-integer value should throw an error", () => {
+            expect(() => {
+                getMostFrequentSighting(nonIntegerValue);
+            }).toThrow("non-integer bird type ids are not allowed");
         });
         test("array 1 should return 1", () => {
             expect(getMostFrequentSighting(birdSightings1)).toBe(1);
@@ -38,6 +56,21 @@ describe("testing birds coding game", () => {
     describe("test getLatestFirstSighting()", () => {
         test("empty array should return 0", () => {
             expect(getLatestFirstSighting(emptyArray)).toBe(0);
+        });
+        test("zero value should throw an error", () => {
+            expect(() => {
+                getMostFrequentSighting(zeroValue);
+            }).toThrow("bird type ids must be >= 1");
+        });
+        test("negative value should throw an error", () => {
+            expect(() => {
+                getMostFrequentSighting(negativeValue);
+            }).toThrow("bird type ids must be >= 1");
+        });
+        test("non-integer value should throw an error", () => {
+            expect(() => {
+                getMostFrequentSighting(nonIntegerValue);
+            }).toThrow("non-integer bird type ids are not allowed");
         });
         test("array 1 should return 3", () => {
             expect(getLatestFirstSighting(birdSightings1)).toBe(3);
