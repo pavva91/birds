@@ -101,3 +101,9 @@ node src/hello.js
 ```shell
 npx jest
 ```
+
+#### Run Tests (jest) with logs
+
+```shell
+npx jest --silent=false
+```
