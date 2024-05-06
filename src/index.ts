@@ -9,6 +9,10 @@
 export function getMostFrequentSighting(birds: number[]): number {
     let sightings = new Map<number, number>();
 
+    if (birds.length == 0) {
+        throw "insert a non-empty array";
+    }
+
     birds.forEach((bird) => {
         birdValidation(bird);
 
@@ -50,6 +54,9 @@ export function getMostFrequentSighting(birds: number[]): number {
 export function getLatestFirstSighting(birds: number[]): number {
     let sightings = new Map<number, boolean>();
     let latestFirstSighting = 0;
+    if (birds.length == 0) {
+        throw "insert a non-empty array";
+    }
     birds.forEach((bird) => {
         birdValidation(bird);
         if (!sightings.has(bird)) {
@@ -60,7 +67,7 @@ export function getLatestFirstSighting(birds: number[]): number {
     return latestFirstSighting;
 }
 
-function birdValidation(birdTypeId: number) {
+function birdValidation(birdTypeId: number): void {
     if (!Number.isInteger(birdTypeId)) {
         throw "non-integer bird type ids are not allowed";
     }

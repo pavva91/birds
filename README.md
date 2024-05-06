@@ -102,6 +102,18 @@ node src/hello.js
 npx jest
 ```
 
+or:
+
+```shell
+npm test
+```
+
+or:
+
+```shell
+npm run test
+```
+
 #### Run Tests with logs
 
 ```shell

@@ -15,8 +15,10 @@ describe("testing birds coding game", () => {
     let birdSightings6 = [2, 2, 1, 1, 3];
 
     describe("test getMostFrequentSighting()", () => {
-        test("empty array should return 0", () => {
-            expect(getMostFrequentSighting(emptyArray)).toBe(0);
+        test("empty array should throw an error", () => {
+            expect(() => {
+                getMostFrequentSighting(emptyArray);
+            }).toThrow("insert a non-empty array");
         });
         test("zero value should throw an error", () => {
             expect(() => {
@@ -54,8 +56,10 @@ describe("testing birds coding game", () => {
     });
 
     describe("test getLatestFirstSighting()", () => {
-        test("empty array should return 0", () => {
-            expect(getLatestFirstSighting(emptyArray)).toBe(0);
+        test("empty array should throw an error", () => {
+            expect(() => {
+                getLatestFirstSighting(emptyArray);
+            }).toThrow("insert a non-empty array");
         });
         test("zero value should throw an error", () => {
             expect(() => {
