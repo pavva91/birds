@@ -102,8 +102,14 @@ node src/hello.js
 npx jest
 ```
 
-#### Run Tests (jest) with logs
+#### Run Tests with logs
 
 ```shell
 npx jest --silent=false
+```
+
+#### Run Tests with coverage
+
+```shell
+npx jest --coverage
 ```
