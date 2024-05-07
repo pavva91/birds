@@ -36,8 +36,7 @@ npm run gocoverage
 
 Implement the following coding game in Typescript. Each method needs to be properly documented
 and tested. The format is up to you, you can either implement it as component, a service, or directly
-as a helper. There is no imposed IDE to use, please send the result in a zip file to the same persons
-listed in the email you received.
+as a helper.
 
 ### Language
 
