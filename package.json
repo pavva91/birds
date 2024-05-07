@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "golang": "cd golang/libs/birds && go test -v ./... -count=1",
+    "gocoverage": "cd golang/libs/birds && go test -v ./... -count=1 -coverprofile cover.out && go tool cover -html=cover.out"
   },
   "keywords": [],
   "author": "",

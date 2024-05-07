@@ -18,6 +18,20 @@ or, simply:
 npm test
 ```
 
+## Run Golang Test Suite
+
+prerequisite: go must be installed on the machine
+
+```shell
+npm run golang
+```
+
+To get code coverage:
+
+```shell
+npm run gocoverage
+```
+
 ## Instructions
 
 Implement the following coding game in Typescript. Each method needs to be properly documented
