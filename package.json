@@ -8,7 +8,8 @@
     "coverage": "jest --coverage",
     "golang": "cd golang/libs/birds && go test -v ./... -count=1",
     "gocoverage": "cd golang/libs/birds && go test -v ./... -count=1 -coverprofile cover.out && go tool cover -html=cover.out",
-    "java": "cd javaapp && gradle clean test"
+    "java": "cd javaapp && gradle clean test",
+    "javacoverage": "cd javaapp && gradle clean test jacocoTestReport && google-chrome-stable app/build/reports/jacoco/test/html/index.html"
   },
   "keywords": [],
   "author": "",
