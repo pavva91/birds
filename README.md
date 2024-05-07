@@ -1,9 +1,8 @@
-# Pre Interview Coding Game
+# Birds Coding Game
 
 ## Run Test suite (TL;DR)
 
-I didn't compress node_modules
-From the root of the repository run:
+I didn't compress node_modules. From the root of the repository run:
 
 ```shell
 npm install
