@@ -1,0 +1,14 @@
+mode: set
+github.com/pavva91/birds/libs/birds/birds.go:5.56,8.21 2 1
+github.com/pavva91/birds/libs/birds/birds.go:8.21,10.3 1 1
+github.com/pavva91/birds/libs/birds/birds.go:12.2,12.29 1 0
+github.com/pavva91/birds/libs/birds/birds.go:12.29,14.20 2 0
+github.com/pavva91/birds/libs/birds/birds.go:14.20,16.4 1 0
+github.com/pavva91/birds/libs/birds/birds.go:16.9,18.4 1 0
+github.com/pavva91/birds/libs/birds/birds.go:22.2,25.30 3 0
+github.com/pavva91/birds/libs/birds/birds.go:25.30,26.19 1 0
+github.com/pavva91/birds/libs/birds/birds.go:26.19,29.4 2 0
+github.com/pavva91/birds/libs/birds/birds.go:29.9,29.27 1 0
+github.com/pavva91/birds/libs/birds/birds.go:29.27,30.28 1 0
+github.com/pavva91/birds/libs/birds/birds.go:30.28,33.5 2 0
+github.com/pavva91/birds/libs/birds/birds.go:37.2,37.30 1 0
