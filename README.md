@@ -32,6 +32,14 @@ To get code coverage:
 npm run gocoverage
 ```
 
+## Run Java Test Suite
+
+prerequisite: go must be installed on the machine
+
+```shell
+npm run java
+```
+
 ## Instructions
 
 Implement the following coding game in Typescript. Each method needs to be properly documented
