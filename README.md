@@ -40,6 +40,12 @@ prerequisite: go must be installed on the machine
 npm run java
 ```
 
+To get code coverage:
+
+```shell
+npm run javacoverage
+```
+
 ## Instructions
 
 Implement the following coding game in Typescript. Each method needs to be properly documented

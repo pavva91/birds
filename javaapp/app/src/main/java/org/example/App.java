@@ -42,7 +42,7 @@ public class App {
         }
     }
 
-    public int getMostFrequentSighting(int[] birds) {
+    public int getMostFrequentSighting(int[] birds) throws IllegalArgumentException {
         Map<Integer, Integer> sightings = new HashMap<>();
         if (birds.length == 0) {
             throw new IllegalArgumentException("insert a non-empty array");
@@ -79,7 +79,7 @@ public class App {
         return mostFrequentBird;
     }
 
-    public int getLatestFistSighting(int[] birds) {
+    public int getLatestFistSighting(int[] birds) throws IllegalArgumentException {
         Map<Integer, Boolean> sightings = new HashMap<>();
         int latestFistSighting = 0;
         if (birds.length == 0) {

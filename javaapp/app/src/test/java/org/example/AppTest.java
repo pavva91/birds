@@ -29,6 +29,22 @@ class AppTest {
         });
     }
 
+    @ParameterizedTest
+    @MethodSource("provideIntArraysForGetLatestFirstSighting")
+    void getLatestFirstSighting_OK_test(int[] input, int expected) {
+        App classUnderTest = new App();
+        assertEquals(expected, classUnderTest.getLatestFistSighting(input));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIntArraysForGetLatestFirstSightingThrowError")
+    void getLatestFirstSighting_must_ThrowError_test(int[] input) {
+        App classUnderTest = new App();
+        assertThrows(IllegalArgumentException.class, () -> {
+            classUnderTest.getLatestFistSighting(input);
+        });
+    }
+
     private static Stream<Arguments> provideIntArraysForGetMostFrequentSighting() {
         int[] birdSightings1 = { 1, 1, 2, 2, 3 };
         int[] birdSightings2 = { 1, 1, 2, 3, 2 };
@@ -43,11 +59,35 @@ class AppTest {
                 Arguments.of(birdSightings4, 2),
                 Arguments.of(birdSightings5, 1),
                 Arguments.of(birdSightings6, 1));
-
     }
 
     private static Stream<Arguments> provideIntArraysForGetMostFrequentSightingThrowError() {
+        int[] emptyArray = {};
+        int[] zeroValue = { 0 };
+        int[] negativeValue = { -2 };
+        return Stream.of(
+                Arguments.of(emptyArray),
+                Arguments.of(zeroValue),
+                Arguments.of(negativeValue));
+    }
 
+    private static Stream<Arguments> provideIntArraysForGetLatestFirstSighting() {
+        int[] birdSightings1 = { 1, 1, 2, 2, 3 };
+        int[] birdSightings2 = { 1, 1, 2, 3, 2 };
+        int[] birdSightings3 = { 4, 1, 2, 2, 5 };
+        int[] birdSightings4 = { 4, 1, 2, 2, 5, 6, 2 };
+        int[] birdSightings5 = { 4, 1, 2, 2, 5, 6, 2, 1, 1 };
+        int[] birdSightings6 = { 2, 2, 1, 1, 3 };
+        return Stream.of(
+                Arguments.of(birdSightings1, 3),
+                Arguments.of(birdSightings2, 3),
+                Arguments.of(birdSightings3, 5),
+                Arguments.of(birdSightings4, 6),
+                Arguments.of(birdSightings5, 6),
+                Arguments.of(birdSightings6, 3));
+    }
+
+    private static Stream<Arguments> provideIntArraysForGetLatestFirstSightingThrowError() {
         int[] emptyArray = {};
         int[] zeroValue = { 0 };
         int[] negativeValue = { -2 };
