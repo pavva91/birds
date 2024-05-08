@@ -1,3 +1,5 @@
+const errorEmptyArray = new Error("insert a non-empty array");
+
 /**
  * determines the id of the most frequently sighted type.
  * If more than 1 type has been spotted that maximum amount,
@@ -5,12 +7,15 @@
  *
  * @param birds {number[]} - the types of birds sighted
  * @returns {number} the lowest type id of the most frequently sighted birds
+ * @throws {Error} If the array is empty
+ * @throws {TypeError} If an element in the input array is not integer
+ * @throws {RangeError} If the an element in the input array is not >= 1
  */
 export function getMostFrequentSighting(birds: number[]): number {
   const sightings = new Map<number, number>();
 
   if (birds.length == 0) {
-    throw "insert a non-empty array";
+    throw errorEmptyArray;
   }
 
   birds.forEach((bird) => {
@@ -42,14 +47,18 @@ export function getMostFrequentSighting(birds: number[]): number {
 /**
  * determines the id of the bird type that was
  * spotted for the first time at the latest.
+ *
  * @param birds {number[]} - the types of birds sighted
  * @returns {number} the latest type that was spotted for the first time
+ * @throws {Error} If the array is empty
+ * @throws {TypeError} If an element in the input array is not integer
+ * @throws {RangeError} If the an element in the input array is not >= 1
  */
 export function getLatestFirstSighting(birds: number[]): number {
   const sightings = new Map<number, boolean>();
   let latestFirstSighting = 0;
   if (birds.length == 0) {
-    throw "insert a non-empty array";
+    throw errorEmptyArray;
   }
   birds.forEach((bird) => {
     birdValidation(bird);
@@ -61,12 +70,15 @@ export function getLatestFirstSighting(birds: number[]): number {
   return latestFirstSighting;
 }
 
+/**
+ * @throws {TypeError} If the birdTypeId is not integer
+ * @throws {RangeError} If the birdTypeId is not >= 1
+ */
 function birdValidation(birdTypeId: number): void {
   if (!Number.isInteger(birdTypeId)) {
-    throw "non-integer bird type ids are not allowed";
+    throw new TypeError("non-integer bird type ids are not allowed");
   }
   if (birdTypeId < 1) {
-    throw "bird type ids must be >= 1";
-    // throw new Error("bird ids must be >= 1");
+    throw new RangeError("bird type ids must be >= 1");
   }
 }

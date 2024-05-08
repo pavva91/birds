@@ -14,26 +14,33 @@ describe("testing birds coding game", () => {
   const birdSightings5 = [4, 1, 2, 2, 5, 6, 2, 1, 1];
   const birdSightings6 = [2, 2, 1, 1, 3];
 
+  // expected errors
+  const errorEmptyArray = new Error("insert a non-empty array");
+  const errorNonIntegerValue = new TypeError(
+    "non-integer bird type ids are not allowed",
+  );
+  const errorNonPositiveValue = new RangeError("bird type ids must be >= 1");
+
   describe("test getMostFrequentSighting()", () => {
     test("empty array should throw an error", () => {
       expect(() => {
         getMostFrequentSighting(emptyArray);
-      }).toThrow("insert a non-empty array");
+      }).toThrow(errorEmptyArray);
     });
     test("zero value should throw an error", () => {
       expect(() => {
         getMostFrequentSighting(zeroValue);
-      }).toThrow("bird type ids must be >= 1");
+      }).toThrow(errorNonPositiveValue);
     });
     test("negative value should throw an error", () => {
       expect(() => {
         getMostFrequentSighting(negativeValue);
-      }).toThrow("bird type ids must be >= 1");
+      }).toThrow(errorNonPositiveValue);
     });
     test("non-integer value should throw an error", () => {
       expect(() => {
         getMostFrequentSighting(nonIntegerValue);
-      }).toThrow("non-integer bird type ids are not allowed");
+      }).toThrow(errorNonIntegerValue);
     });
     test("array 1 should return 1", () => {
       expect(getMostFrequentSighting(birdSightings1)).toBe(1);
@@ -59,22 +66,22 @@ describe("testing birds coding game", () => {
     test("empty array should throw an error", () => {
       expect(() => {
         getLatestFirstSighting(emptyArray);
-      }).toThrow("insert a non-empty array");
+      }).toThrow(errorEmptyArray);
     });
     test("zero value should throw an error", () => {
       expect(() => {
-        getMostFrequentSighting(zeroValue);
-      }).toThrow("bird type ids must be >= 1");
+        getLatestFirstSighting(zeroValue);
+      }).toThrow(errorNonPositiveValue);
     });
     test("negative value should throw an error", () => {
       expect(() => {
-        getMostFrequentSighting(negativeValue);
-      }).toThrow("bird type ids must be >= 1");
+        getLatestFirstSighting(negativeValue);
+      }).toThrow(errorNonPositiveValue);
     });
     test("non-integer value should throw an error", () => {
       expect(() => {
-        getMostFrequentSighting(nonIntegerValue);
-      }).toThrow("non-integer bird type ids are not allowed");
+        getLatestFirstSighting(nonIntegerValue);
+      }).toThrow(errorNonIntegerValue);
     });
     test("array 1 should return 3", () => {
       expect(getLatestFirstSighting(birdSightings1)).toBe(3);

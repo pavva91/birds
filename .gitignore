@@ -131,6 +131,7 @@ dist
 
 # Golang
 **/cover.out
+**/coverage.out
 
 # Java
 # Ignore Gradle project-specific cache directory

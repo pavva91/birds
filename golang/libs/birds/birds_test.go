@@ -4,6 +4,7 @@ import (
 	"testing"
 )
 
+// mock
 var emptyArray = []int{}
 var zeroValue = []int{0}
 var negativeValue = []int{-1}
