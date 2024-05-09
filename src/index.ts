@@ -21,7 +21,7 @@ export function getMostFrequentSighting(birds: number[]): number {
   birds.forEach((bird) => {
     birdValidation(bird);
     if (sightings.has(bird)) {
-      sightings.set(bird, sightings.get(bird) + 1);
+      sightings.set(bird, sightings.get(bird)! + 1);
     } else {
       sightings.set(bird, 1);
     }
@@ -73,6 +73,7 @@ export function getLatestFirstSighting(birds: number[]): number {
 /**
  * @throws {TypeError} If the birdTypeId is not integer
  * @throws {RangeError} If the birdTypeId is not >= 1
+ * @throws {RangeError} If the birdTypeId is over Number.MAX_SAFE_INTEGER
  */
 function birdValidation(birdTypeId: number): void {
   if (!Number.isInteger(birdTypeId)) {
@@ -80,5 +81,8 @@ function birdValidation(birdTypeId: number): void {
   }
   if (birdTypeId < 1) {
     throw new RangeError("bird type ids must be >= 1");
+  }
+  if (!(birdTypeId <= Number.MAX_SAFE_INTEGER)) {
+    throw new RangeError("integer too big");
   }
 }

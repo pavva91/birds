@@ -3,10 +3,14 @@ import { getLatestFirstSighting } from "../src/index";
 
 describe("testing birds coding game", () => {
   // mock
-  const emptyArray = [];
+  const emptyArray: number[] = [];
   const zeroValue = [0];
   const negativeValue = [-2];
   const nonIntegerValue = [2.344, 1.1];
+  const octalValue = [0o11];
+  const exaValue = [0x11];
+  const intOverflowValue = [Number.MAX_SAFE_INTEGER + 1];
+  const justBelowIntOverflowValue = [Number.MAX_SAFE_INTEGER];
   const birdSightings1 = [1, 1, 2, 2, 3];
   const birdSightings2 = [1, 1, 2, 3, 2];
   const birdSightings3 = [4, 1, 2, 2, 5];
@@ -20,6 +24,7 @@ describe("testing birds coding game", () => {
     "non-integer bird type ids are not allowed",
   );
   const errorNonPositiveValue = new RangeError("bird type ids must be >= 1");
+  const errorOverflowValue = new RangeError("integer too big");
 
   describe("test getMostFrequentSighting()", () => {
     test("empty array should throw an error", () => {
@@ -41,6 +46,22 @@ describe("testing birds coding game", () => {
       expect(() => {
         getMostFrequentSighting(nonIntegerValue);
       }).toThrow(errorNonIntegerValue);
+    });
+    test("octal value", () => {
+      expect(getMostFrequentSighting(octalValue)).toBe(9);
+    });
+    test("exa value", () => {
+      expect(getMostFrequentSighting(exaValue)).toBe(17);
+    });
+    test("integer overflow value", () => {
+      expect(() => {
+        getMostFrequentSighting(intOverflowValue);
+      }).toThrow(errorOverflowValue);
+    });
+    test("just below integer overflow value", () => {
+      expect(getMostFrequentSighting(justBelowIntOverflowValue)).toBe(
+        9007199254740991,
+      );
     });
     test("array 1 should return 1", () => {
       expect(getMostFrequentSighting(birdSightings1)).toBe(1);
@@ -82,6 +103,22 @@ describe("testing birds coding game", () => {
       expect(() => {
         getLatestFirstSighting(nonIntegerValue);
       }).toThrow(errorNonIntegerValue);
+    });
+    test("octal value", () => {
+      expect(getLatestFirstSighting(octalValue)).toBe(9);
+    });
+    test("exa value", () => {
+      expect(getLatestFirstSighting(exaValue)).toBe(17);
+    });
+    test("integer overflow value", () => {
+      expect(() => {
+        getLatestFirstSighting(intOverflowValue);
+      }).toThrow(errorOverflowValue);
+    });
+    test("just below integer overflow value", () => {
+      expect(getLatestFirstSighting(justBelowIntOverflowValue)).toBe(
+        9007199254740991,
+      );
     });
     test("array 1 should return 3", () => {
       expect(getLatestFirstSighting(birdSightings1)).toBe(3);
