@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noEmitOnError": true,
+    "target": "es2015",
+    "skipLibCheck": true,
+    "strict": true,
+    "noImplicitAny": true
   },
   "include": [
     "src/**/*.ts"
