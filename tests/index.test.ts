@@ -1,5 +1,11 @@
 import { getMostFrequentSighting } from "../src/index";
 import { getLatestFirstSighting } from "../src/index";
+import {
+  errorEmptyArray,
+  errorNonIntegerValue,
+  errorNonPositiveValue,
+  errorOverflowValue,
+} from "../src/index";
 
 describe("testing birds coding game", () => {
   // mock
@@ -11,20 +17,13 @@ describe("testing birds coding game", () => {
   const exaValue = [0x11];
   const intOverflowValue = [Number.MAX_SAFE_INTEGER + 1];
   const justBelowIntOverflowValue = [Number.MAX_SAFE_INTEGER];
+  const exaIntOverflowValue = [0x20000000000000];
   const birdSightings1 = [1, 1, 2, 2, 3];
   const birdSightings2 = [1, 1, 2, 3, 2];
   const birdSightings3 = [4, 1, 2, 2, 5];
   const birdSightings4 = [4, 1, 2, 2, 5, 6, 2];
   const birdSightings5 = [4, 1, 2, 2, 5, 6, 2, 1, 1];
   const birdSightings6 = [2, 2, 1, 1, 3];
-
-  // expected errors
-  const errorEmptyArray = new Error("insert a non-empty array");
-  const errorNonIntegerValue = new TypeError(
-    "non-integer bird type ids are not allowed",
-  );
-  const errorNonPositiveValue = new RangeError("bird type ids must be >= 1");
-  const errorOverflowValue = new RangeError("integer too big");
 
   describe("test getMostFrequentSighting()", () => {
     test("empty array should throw an error", () => {
@@ -62,6 +61,11 @@ describe("testing birds coding game", () => {
       expect(getMostFrequentSighting(justBelowIntOverflowValue)).toBe(
         9007199254740991,
       );
+    });
+    test("exa integer overflow value", () => {
+      expect(() => {
+        getMostFrequentSighting(exaIntOverflowValue);
+      }).toThrow(errorOverflowValue);
     });
     test("array 1 should return 1", () => {
       expect(getMostFrequentSighting(birdSightings1)).toBe(1);
@@ -108,6 +112,9 @@ describe("testing birds coding game", () => {
       expect(getLatestFirstSighting(octalValue)).toBe(9);
     });
     test("exa value", () => {
+      expect(getLatestFirstSighting(exaValue)).toBe(17);
+    });
+    test("exa integer overflow", () => {
       expect(getLatestFirstSighting(exaValue)).toBe(17);
     });
     test("integer overflow value", () => {

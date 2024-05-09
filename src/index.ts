@@ -1,4 +1,11 @@
-const errorEmptyArray = new Error("insert a non-empty array");
+export const errorEmptyArray = new Error("insert a non-empty array");
+export const errorNonIntegerValue = new TypeError(
+  "non-integer bird type ids are not allowed",
+);
+export const errorNonPositiveValue = new RangeError(
+  "bird type ids must be >= 1",
+);
+export const errorOverflowValue = new RangeError("integer too big");
 
 /**
  * determines the id of the most frequently sighted type.
@@ -14,7 +21,7 @@ const errorEmptyArray = new Error("insert a non-empty array");
 export function getMostFrequentSighting(birds: number[]): number {
   const sightings = new Map<number, number>();
 
-  if (birds.length == 0) {
+  if (birds.length === 0) {
     throw errorEmptyArray;
   }
 
@@ -57,7 +64,7 @@ export function getMostFrequentSighting(birds: number[]): number {
 export function getLatestFirstSighting(birds: number[]): number {
   const sightings = new Map<number, boolean>();
   let latestFirstSighting = 0;
-  if (birds.length == 0) {
+  if (birds.length === 0) {
     throw errorEmptyArray;
   }
   birds.forEach((bird) => {
@@ -77,12 +84,12 @@ export function getLatestFirstSighting(birds: number[]): number {
  */
 function birdValidation(birdTypeId: number): void {
   if (!Number.isInteger(birdTypeId)) {
-    throw new TypeError("non-integer bird type ids are not allowed");
+    throw errorNonIntegerValue;
   }
   if (birdTypeId < 1) {
-    throw new RangeError("bird type ids must be >= 1");
+    throw errorNonPositiveValue;
   }
   if (!(birdTypeId <= Number.MAX_SAFE_INTEGER)) {
-    throw new RangeError("integer too big");
+    throw errorOverflowValue;
   }
 }
