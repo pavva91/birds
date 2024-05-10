@@ -12,7 +12,8 @@ describe("testing birds coding game", () => {
   const emptyArray: number[] = [];
   const zeroValue = [0];
   const negativeValue = [-2];
-  const nonIntegerValue = [2.344, 1.1];
+  const nonIntegerNoCastIntValue = [2.1, 1.0];
+  const nonIntegerCastIntValue = [2.0, 1.0, 3.0];
   const octalValue = [0o11];
   const exaValue = [0x11];
   const intOverflowValue = [Number.MAX_SAFE_INTEGER + 1];
@@ -43,8 +44,11 @@ describe("testing birds coding game", () => {
     });
     test("non-integer value should throw an error", () => {
       expect(() => {
-        getMostFrequentSighting(nonIntegerValue);
+        getMostFrequentSighting(nonIntegerNoCastIntValue);
       }).toThrow(errorNonIntegerValue);
+    });
+    test("non-integer cast int value", () => {
+      expect(getMostFrequentSighting(nonIntegerCastIntValue)).toBe(1);
     });
     test("octal value", () => {
       expect(getMostFrequentSighting(octalValue)).toBe(9);
@@ -105,8 +109,11 @@ describe("testing birds coding game", () => {
     });
     test("non-integer value should throw an error", () => {
       expect(() => {
-        getLatestFirstSighting(nonIntegerValue);
+        getLatestFirstSighting(nonIntegerNoCastIntValue);
       }).toThrow(errorNonIntegerValue);
+    });
+    test("non-integer cast int value", () => {
+      expect(getLatestFirstSighting(nonIntegerCastIntValue)).toBe(3);
     });
     test("octal value", () => {
       expect(getLatestFirstSighting(octalValue)).toBe(9);
