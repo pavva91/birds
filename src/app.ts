@@ -3,21 +3,7 @@ import { getMostFrequentSighting } from "../src/birds";
 import { getLatestFirstSighting } from "../src/birds";
 
 yargs
-  .scriptName("coding")
-  .command(
-    "hello [name]",
-    "welcome ter yargs!",
-    (yargs) => {
-      yargs.positional("name", {
-        type: "string",
-        default: "Cambi",
-        describe: "the name to say hello to",
-      });
-    },
-    function (argv) {
-      console.log("hello", argv.name, "welcome to yargs!");
-    },
-  )
+  .scriptName("birds")
   .options({
     sightings: {
       alias: ["sightings", "s"],
