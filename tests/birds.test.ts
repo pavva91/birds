@@ -1,11 +1,11 @@
-import { getMostFrequentSighting } from "../src/index";
-import { getLatestFirstSighting } from "../src/index";
+import { getMostFrequentSighting } from "../src/birds";
+import { getLatestFirstSighting } from "../src/birds";
 import {
   errorEmptyArray,
   errorNonIntegerValue,
   errorNonPositiveValue,
   errorOverflowValue,
-} from "../src/index";
+} from "../src/birds";
 
 describe("testing birds coding game", () => {
   // mock

@@ -1,8 +1,18 @@
 # Birds Coding Game
 
-## Run Test suite (TL;DR)
+## Run CLI program
 
-I didn't compress node_modules. From the root of the repository run:
+```shell
+npx ts-node src/app.ts birds -s '1,1,2,2,3' --func most
+```
+
+```shell
+npx ts-node src/app.ts birds -s '1,1,2,3,2' --func last
+```
+
+## Run Test suite
+
+From the root of the repository run:
 
 ```shell
 npm install
