@@ -25,28 +25,27 @@ export function getMostFrequentSighting(birds: number[]): number {
     throw errorEmptyArray;
   }
 
-  birds.forEach((bird) => {
+  let maxValue = 0;
+  let mostFrequentBird = 0;
+
+  for (let i = 0; i < birds.length; i++) {
+    const bird = birds[i];
     birdValidation(bird);
     if (sightings.has(bird)) {
       sightings.set(bird, sightings.get(bird)! + 1);
     } else {
       sightings.set(bird, 1);
     }
-  });
-
-  let maxValue = 0;
-  let mostFrequentBird = 0;
-  sightings.forEach((value, key) => {
-    if (value > maxValue) {
-      mostFrequentBird = key;
-      maxValue = value;
-    } else if (value == maxValue) {
-      if (key < mostFrequentBird) {
-        mostFrequentBird = key;
-        maxValue = value;
+    if (sightings.get(bird)! > maxValue) {
+      mostFrequentBird = bird;
+      maxValue = sightings.get(bird)!;
+    } else if (sightings.get(bird) === maxValue) {
+      if (bird < mostFrequentBird) {
+        mostFrequentBird = bird;
+        maxValue = sightings.get(bird)!;
       }
     }
-  });
+  }
 
   return mostFrequentBird;
 }
